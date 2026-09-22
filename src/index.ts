@@ -3,8 +3,10 @@ import dotenv from "dotenv";
 dotenv.config();
 import itemsRouter from "./routes/items";
 import jobsRouter from "./routes/jobs";
+import cors from "cors";
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 app.use("/items", itemsRouter);
 app.use("/jobs", jobsRouter);
