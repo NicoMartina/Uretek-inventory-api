@@ -35,4 +35,9 @@ router.post("/", async (req, res) => {
   }
 });
 
+router.get("/", async (req, res) => {
+  const result = await pool.query("SELECT * FROM jobs");
+  res.json(result.rows);
+});
+
 export default router;
