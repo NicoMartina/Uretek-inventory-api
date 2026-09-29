@@ -30,6 +30,7 @@ router.post("/", async (req, res) => {
     await pool.query("COMMIT");
     res.json({ message: "Job Created" });
   } catch (error) {
+    console.error("Transaction error:", error);
     await pool.query("ROLLBACK");
     res.status(500).json({ error: "Transaction Failed" });
   }
